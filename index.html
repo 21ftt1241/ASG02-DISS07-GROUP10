@@ -8,9 +8,25 @@
 <body>
 	Placeholder
 
+
 	<h1>Bruh</h1>
 	<h2>Hai</h2>
 	<h2>Bruhh</h2>
 	<h3>BRUH</h3>
+
+	<script>
+// Check if the localStorage object exists
+if(localStorage) {
+    // Store data
+    // setItem(key, value)
+    localStorage.setItem("first_name", "Peter");
+    
+    // Retrieve data
+    alert("Hi, " + localStorage.getItem("first_name"));
+} else {
+	alert("Sorry, your browser do not support local storage.");
+}
+</script>
+
 </body>
 </html>
