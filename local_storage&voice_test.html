@@ -31,14 +31,17 @@
 		var inputText = document.getElementById('textS');
 		var btnSpeak = document.querySelector('#btnSpeak');
 
+		// set var tts as the speech synthesis
 		var tts = window.speechSynthesis;
+
+		// array list for the type of voices
 		var voices = [];
 
+		// get the voice type from the list of voice and play it
 		GetVoices();
 		if(speechSynthesis !== undefined){
 			speechSynthesis.onvoiceschanged = GetVoices;
 		}
-
 		btnSpeak.addEventListener('click', ()=>{
 			var toSpeak = new SpeechSynthesisUtterance(inputText.value);
 			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
@@ -49,6 +52,7 @@
 			});
 			tts.speak(toSpeak);
 		});
+		// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 		function pauseVoice(){
 			tts.pause();
@@ -61,6 +65,7 @@
 			tts.cancel();
 		}
 
+		// get the list of available voice type and display it on a select list
 		function GetVoices(){
 			voices = tts.getVoices();
 			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
