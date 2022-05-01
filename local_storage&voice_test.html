@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Test</title>
+</head>
+<body>
+	<textarea name="tArea" id="textS" cols="30" rows="10">
+	</textarea>
+	<br>
+	<!-- Create a list of voices -->
+	<label for="voicelist">Select voice:<select name="" id="voicelist"></select></label>
+	<br>
+	<button id="btnSpeak">Speak!</button>
+	<button onclick="pauseVoice()">Pause</button>
+	<button onclick="resumeVoice()">Resume</button>
+	<button onclick="stopVoice()">Stop</button>
+
+	<script type="text/javascript">
+		// create a key named 'test' with a value of 'This is just a test' and store it in local storage i.e browser
+		localStorage.setItem('test',"Nineteen-year-old Alice returns to the magical world from her childhood adventure, where she reunites with her old friends and learns of her true destiny: to end the Red Queen's reign of terror. Alice, an unpretentious and individual 19-year-old, is betrothed to a dunce of an English nobleman.");
+
+		// get the local storage item by the key and set it to var x
+		var x = localStorage.getItem('test');
+
+		// display the local storage texts
+		document.getElementById("textS").innerHTML = x;
+
+		var voicelist = document.querySelector('#voicelist');
+		var inputText = document.getElementById('textS');
+		var btnSpeak = document.querySelector('#btnSpeak');
+
+		var tts = window.speechSynthesis;
+		var voices = [];
+
+		GetVoices();
+		if(speechSynthesis !== undefined){
+			speechSynthesis.onvoiceschanged = GetVoices;
+		}
+
+		btnSpeak.addEventListener('click', ()=>{
+			var toSpeak = new SpeechSynthesisUtterance(inputText.value);
+			var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+			voices.forEach((voice)=>{
+				if(voice.name === selectedVoiceName){
+					toSpeak.voice = voice;
+				}
+			});
+			tts.speak(toSpeak);
+		});
+
+		function pauseVoice(){
+			tts.pause();
+		}
+
+		function resumeVoice(){
+			tts.resume();
+		}
+		function stopVoice(){
+			tts.cancel();
+		}
+
+		function GetVoices(){
+			voices = tts.getVoices();
+			var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+			voicelist.innerHTML = '';
+			voices.forEach((voice)=>{
+				var listItem = document.createElement('option');
+				listItem.textContent = voice.name;
+				listItem.setAttribute('data-lang', voice.lang);
+				listItem.setAttribute('data-name', voice.name);
+				voicelist.appendChild(listItem);
+			});
+
+			voicelist.selectedIndex = 0;
+		}
+
+	</script>
+
+
+</body>
+</html>
