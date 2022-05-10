@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>s1p1</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+	
+</head>
+<body onload="s1_1_en()">
+
+<!-- <textarea id="textS"></textarea> -->
+	<div>
+		<p id="textS"></p>
+	</div>
+
+	<br>
+
+	<div>
+		<label for="lang_list"> Select language: 
+			<select name="" id="lang_list">
+				<option value="en" onclick="s1_1_en()">English</option>
+				<option value="mal" onclick="s1_1_mal()">Malay</option>
+			</select>
+		</label>
+		<br>
+		<button id="btnSpeak">Speak!</button>
+		<button onclick="pauseVoice()">Pause</button>
+		<button onclick="resumeVoice()">Resume</button>
+		<button onclick="stopVoice()">Stop</button>
+		<!-- Create a list of voices -->
+		<br>
+		<label for="voicelist">Select voice: <select name="" id="voicelist"></select>
+		</label>
+	</div>
+
+	<div><button><a href="s1p2.html">Next Page</a></button></div>
+
+	<script src="script.js"></script> 
+</body>
+</html>
