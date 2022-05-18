@@ -12,7 +12,7 @@
 	</style>
 	
 </head>
-<body onload="s1_2_en()">
+<body onchange="story_load()" onload="story_page()">
 	<div>
 		<p id="textS"></p>
 	</div>
@@ -21,8 +21,8 @@
 	<div>
 		<label for="lang_list"> Select language: 
 			<select name="" id="lang_list">
-				<option value="en" onclick="s1_2_en()">English</option>
-				<option value="mal" onclick="s1_2_mal()">Malay</option>
+				<option value="en">English</option>
+				<option value="mal">Malay</option>
 			</select>
 		</label>
 		<br>
@@ -39,8 +39,14 @@
 			<button><a href="s1p1.html">Previous Page</a></button>
 			<button><a href="s1p3.html">Next Page</a></button>
 		</div>
+		<div><button onclick="clearStorage()">Clear</button></div>
 	</div>
 
-	<script src="script.js"></script> 
+	<script src="script.js"></script>
+	<script type="text/javascript">
+		function story_page(){
+            localStorage.setItem ('current_page', 2);
+        } 
+	</script>  
 </body>
 </html>
