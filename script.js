@@ -13,30 +13,15 @@ localStorage.setItem('story1_3_mal', 'Turun, bawah, bawah. Tiada apa-apa lagi ya
 
 // display the local storage texts
 // Get Story 1
-function s1_1_en() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_1_en');
-}
+var s1_1_en = localStorage.getItem('story1_1_en');
+var s1_1_mal = localStorage.getItem('story1_1_mal');
+var s1_2_en = localStorage.getItem('story1_2_en');
+var s1_2_mal = localStorage.getItem('story1_2_mal');
+var s1_3_en = localStorage.getItem('story1_3_en');
+var s1_3_mal = localStorage.getItem('story1_3_mal');
 
-function s1_1_mal() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_1_mal');
-}
-
-function s1_2_en() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_2_en');
-}
-
-function s1_2_mal() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_2_mal');
-}
-
-function s1_3_en() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_3_en');
-}
-
-function s1_3_mal() {
-    document.getElementById("textS").innerHTML = localStorage.getItem('story1_3_mal');
-}
-
+var current_story_en;
+var current_story_mal;
 
 // -----------------------------------------------------------
 var voicelist = document.getElementById('voicelist');
@@ -95,14 +80,24 @@ function GetVoices() {
     voicelist.selectedIndex = 0;
 }
 
-
-// save the value for chosen voice
 document.addEventListener('DOMContentLoaded', function() {
 
     var page_num = localStorage.getItem('current_page');
-
+    
     switch(page_num){
-        case 1:
+        case '1':
+        current_story_en = s1_1_en;
+        current_story_mal = s1_1_mal;
+        lang_check();
+        break;
+        case '2':
+        current_story_en = s1_2_en;
+        current_story_mal = s1_2_mal;
+        lang_check();
+        break;
+        case '3':
+        current_story_en = s1_3_en;
+        current_story_mal = s1_3_mal;
         lang_check();
         break;
     }
@@ -122,17 +117,24 @@ document.addEventListener('DOMContentLoaded', function() {
     inputLang.onchange = function(){
         localStorage['lang_list'] = this.value;
     }
-});
 
-function lang_check(){
+    function lang_check(){
     if (inputLang.value === "en"){
-        s1_1_en();
-    }
-    if (inputLang.value === "mal"){
-        s1_1_mal();
+        document.getElementById("textS").innerHTML = current_story_en;
+    }else if (inputLang.value === "mal"){
+        document.getElementById("textS").innerHTML = current_story_mal;
     }
 }
+});
 
+function story_load(){
+    if (inputLang.value === "en"){
+    document.getElementById("textS").innerHTML = current_story_en;
+    }
+    if (inputLang.value === "mal"){
+    document.getElementById("textS").innerHTML = current_story_mal;
+    }
+}
 
 function clearStorage(){
     localStorage.clear();
