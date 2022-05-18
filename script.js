@@ -43,7 +43,7 @@ var voicelist = document.getElementById('voicelist');
 var inputText = document.getElementById('textS');
 var btnSpeak = document.getElementById('btnSpeak');
 
-// var inputLang = document.getElementById('lang_list');
+var inputLang = document.getElementById('lang_list');
 
 // set var tts as the speech synthesis
 var tts = window.speechSynthesis;
@@ -95,8 +95,18 @@ function GetVoices() {
     voicelist.selectedIndex = 0;
 }
 
+
 // save the value for chosen voice
 document.addEventListener('DOMContentLoaded', function() {
+
+    var page_num = localStorage.getItem('current_page');
+
+    switch(page_num){
+        case 1:
+        lang_check();
+        break;
+    }
+
     var inputVoice = document.getElementById('voicelist');
     if (localStorage['voicelist']) { // if job is set
         inputVoice.value = localStorage['voicelist']; // set the value
@@ -105,21 +115,23 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage['voicelist'] = this.value; // change localStorage on change
     }
 
-    // if (localStorage['lang_list']){
-    //     inputLang.value = localStorage['lang_list'];
-    // }
-    // inputLang.onchange = function(){
-    //     localStorage['lang_list'] = this.value;
-    // }
-    // if (inputLang.value === "en"){
-    // s1_1_en();
-    // }
-    // if (inputLang.value === "mal"){
-    // lang_list.selectedIndex = 1;
-    // s1_1_mal();
-    // }
+    if (localStorage['lang_list']){
+        inputLang.value = localStorage['lang_list'];
+    }
+
+    inputLang.onchange = function(){
+        localStorage['lang_list'] = this.value;
+    }
 });
 
+function lang_check(){
+    if (inputLang.value === "en"){
+        s1_1_en();
+    }
+    if (inputLang.value === "mal"){
+        s1_1_mal();
+    }
+}
 
 
 function clearStorage(){
