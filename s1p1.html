@@ -12,7 +12,7 @@
 	</style>
 	
 </head>
-<body onload="story_load(), story_page()" onchange="story_load()">
+<body onload="story_load()" onchange="story_load()">
 
 	<!-- <textarea id="textS"></textarea> -->
 	<div id="textS">
@@ -46,9 +46,7 @@
 	</script>
 
 	<script type="text/javascript">
-		function story_page(){
-            localStorage.setItem ('current_page', 1);
-        } 
+		localStorage.setItem ('current_page', 1);
 	</script> 
 </body>
 </html>
