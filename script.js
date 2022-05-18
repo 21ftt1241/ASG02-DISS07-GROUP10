@@ -80,8 +80,6 @@ function GetVoices() {
     voicelist.selectedIndex = 0;
 }
 
-
-// save the value for chosen voice
 document.addEventListener('DOMContentLoaded', function() {
 
     var page_num = localStorage.getItem('current_page');
@@ -123,13 +121,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function lang_check(){
     if (inputLang.value === "en"){
         document.getElementById("textS").innerHTML = current_story_en;
-    }
-    if (inputLang.value === "mal"){
+    }else if (inputLang.value === "mal"){
         document.getElementById("textS").innerHTML = current_story_mal;
     }
 }
 });
-current_story_en = "Nigger";
+
 function story_load(){
     if (inputLang.value === "en"){
     document.getElementById("textS").innerHTML = current_story_en;
@@ -138,7 +135,6 @@ function story_load(){
     document.getElementById("textS").innerHTML = current_story_mal;
     }
 }
-
 
 function clearStorage(){
     localStorage.clear();
