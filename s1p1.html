@@ -12,7 +12,7 @@
 	</style>
 	
 </head>
-<body onchange="lang_check()" onload="story_page()">
+<body onload="story_load(), story_page()">
 
 	<!-- <textarea id="textS"></textarea> -->
 	<div id="textS">
@@ -32,7 +32,6 @@
 		<button onclick="resumeVoice()">Resume</button>
 		<button onclick="stopVoice()">Stop</button>
 
-
 		<br>
 		<label for="voicelist">Select voice: <select name="" id="voicelist"></select>
 		</label>
@@ -42,7 +41,9 @@
 	<div><button><a href="s1p2.html">Next Page</a></button></div>
 	<div><button onclick="clearStorage()">Clear</button></div>
 
-	<script src="script.js"></script>
+	<script src="script.js">
+		
+	</script>
 
 	<script type="text/javascript">
 		function story_page(){
