@@ -3,43 +3,73 @@
 <head>
 	<title></title>
 </head>
-<body>
-<div id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
-<div id="isi"></div>
+<body onchange="disableBtn()">
+	<div id="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	<div id="isi"></div>
 
-<button onclick="fontIncrease()">Increase</button>
-<button onclick="fontDecrease()">Decrease</button>
-<script type="text/javascript">
-	var text = document.getElementById("text");
-	var isi = document.getElementById("isi");
-	var size1 = localStorage.getItem("fonts");
-	text.style.fontSize = size1+"em";
-	if(size!=size1){
-		size = 0;
-		size += parseInt(size1);
-	}
-	else{
-			var size = 1;
-	}
-	function fontIncrease(){
-		if(size!=3){
-		size+=0.25;}
-		text.style.fontSize = size+"em";
-		localStorage.setItem("fonts", size);
-	}
-	function fontDecrease(){
-		if(size!=1){
-		size-=0.25;}
-		text.style.fontSize = size+"em";
-		localStorage.setItem("fonts", size);
-	}
-	
-	
-</script>
+	<button id="fontIncrease" onclick="fontIncrease()">Increase</button>
+	<button id="fontDecrease" onclick="fontDecrease()">Decrease</button>
+	<script type="text/javascript">
+		var text = document.getElementById("text");
+		var isi = document.getElementById("isi");
+		var size1 = localStorage.getItem("fonts");
+		var size;
+
+		var fontInc = document.getElementById('fontIncrease');
+		var fontDec = document.getElementById('fontDecrease');
+
+		text.style.fontSize = size1+"em";
+		if(size!=size1){
+			size = 0;
+			size += parseInt(size1);
+		}
+		else{
+			size = 1;
+		}
+
+		function disableBtn(){
+			if(size==3){
+				fontInc.disabled = true;
+			}else{
+				fontInc.disabled = false;
+				fontDec.disabled = false;
+			}
+			if (size==1){
+				fontDec.disabled = true;
+			}else{
+				fontInc.disabled = false;
+				fontDec.disabled = false;
+			}
+		}
+
+		function fontIncrease(){
+			if(size==3){
+				fontInc.disabled = true;
+			}else{
+				size+=0.25;
+				fontInc.disabled = false;
+				fontDec.disabled = false;	
+			}
+			text.style.fontSize = size+"em";
+			localStorage.setItem("fonts", size);
+		}
+
+		function fontDecrease(){
+			if(size==1){
+				fontDec.disabled = true;
+			}else{
+				size-=0.25;
+				fontInc.disabled = false;
+				fontDec.disabled = false;
+			}
+			text.style.fontSize = size+"em";
+			localStorage.setItem("fonts", size);
+		}
+	</script>
 </body>
 </html>
