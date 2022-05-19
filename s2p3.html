@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>s2p3</title>
+	<style type="text/css">
+		a{
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+	
+</head>
+<body onload="story_load()" onchange="story_load()">
+
+	<!-- <textarea id="textS"></textarea> -->
+	<div id="textS">
+	</div>
+	<br>
+
+	<div>
+		<label for="lang_list"> Select language: 
+			<select name="" id="lang_list">
+				<option value="en">English</option>
+				<option value="mal">Malay</option>
+			</select>
+		</label>
+		<br>
+		<button id="btnSpeak">Speak!</button>
+		<button onclick="pauseVoice()">Pause</button>
+		<button onclick="resumeVoice()">Resume</button>
+		<button onclick="stopVoice()">Stop</button>
+
+		<br>
+		<label for="voicelist">Select voice: <select name="" id="voicelist"></select>
+		</label>
+		
+	</div>
+
+	<!-- <div><button><a href="s2p3.html">Next Page</a></button></div> -->
+	<div><button><a href="s2p2.html">Previous Page</a></button></div>
+	<div><button onclick="clearStorage()">Clear</button></div>
+
+	<script src="script.js">
+
+	</script>
+
+	<script type="text/javascript">
+		localStorage.setItem ('current_page', 6);
+	</script> 
+</body>
+</html>
