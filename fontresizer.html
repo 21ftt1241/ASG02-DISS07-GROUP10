@@ -27,12 +27,14 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
 			var size = 1;
 	}
 	function fontIncrease(){
-		size+=.25;
+		if(size!=3){
+		size+=0.25;}
 		text.style.fontSize = size+"em";
 		localStorage.setItem("fonts", size);
 	}
 	function fontDecrease(){
-		size-=.25;
+		if(size!=1){
+		size-=0.25;}
 		text.style.fontSize = size+"em";
 		localStorage.setItem("fonts", size);
 	}
