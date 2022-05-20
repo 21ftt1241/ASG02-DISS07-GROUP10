@@ -4,6 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>s1p2</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+	<link rel="stylesheet" href="style.css">
 	<style type="text/css">
 		a{
 			text-decoration: none;
@@ -14,7 +17,6 @@
 </head>
 <body onload="story_load()" onchange="story_load()">
 
-	<!-- <textarea id="textS"></textarea> -->
 	<div id="textS">
 	</div>
 	<br>
@@ -26,6 +28,24 @@
 				<option value="mal">Malay</option>
 			</select>
 		</label>
+		<!-- RATE -->
+		<div class="s">	
+			<div class="container star-widget">
+				<input type="radio"  name="ratings" value="1" id="rate-5">
+				<label class="fas fa-star" for="rate-5"></label>
+				<input type="radio"  name="ratings" value="2" id="rate-4">
+				<label class="fas fa-star" for="rate-4"></label>
+				<input type="radio"  name="ratings" value="3" id="rate-3">
+				<label class="fas fa-star" for="rate-3"></label>
+				<input type="radio"  name="ratings" value="4" id="rate-2">
+				<label class="fas fa-star" for="rate-2"></label>
+				<input type="radio"  name="ratings" value="5" id="rate-1">
+				<label class="fas fa-star" for="rate-1"></label>
+				<button onclick="avg()">Submit</button>
+			</div>
+		</div>
+		<br>
+
 		<br>
 		<button id="btnSpeak">Speak!</button>
 		<button onclick="pauseVoice()">Pause</button>
@@ -35,6 +55,8 @@
 		<br>
 		<label for="voicelist">Select voice: <select name="" id="voicelist"></select>
 		</label>
+		<button id="saveV">Save Voices</button>
+		<button id="resetV">Reset Voices</button>
 		
 	</div>
 
