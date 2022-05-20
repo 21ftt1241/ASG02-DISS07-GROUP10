@@ -22,6 +22,7 @@
 	<br>
 	<div id="link"></div>
 
+
 	<script type="text/javascript">
 		function randomImg() {
 			//declare an array to store the images
@@ -29,9 +30,9 @@
 			var storyBtn = document.getElementById("link");
 
 			//insert the URL of images in array
-			randomImage[0] = "images/story_1.jpg";
-			randomImage[1] = "images/story_2.jpg";
-			randomImage[2] = "images/story_3.jpg";
+			randomImage[0] = "images/cover_AIW.jpg";
+			randomImage[1] = "images/cover_LW.jpg";
+			randomImage[2] = "images/cover_PP.jpg";
 
 			//generate a number and provide to the image to generate randomly
 			var number = Math.floor(Math.random()*randomImage.length);
@@ -40,6 +41,7 @@
 			document.getElementById("result").innerHTML = '<img src="'+randomImage[number]+'" />';
 
 			if(number == 0){
+
 				storyBtn.innerHTML = '<button> <a href="s1p1.html">Go to Story</a></button>';
 			}else if (number == 1){
 				storyBtn.innerHTML = '<button> <a href="s2p1.html">Go to Story</a></button>';
