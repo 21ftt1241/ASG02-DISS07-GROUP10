@@ -5,78 +5,70 @@
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 	<style type="text/css">
-.container{
-	/*display: flex;
-  align-items: center;
-  justify-content: center;*/
-}
-.container .star-widget input{
-  display: none;
+		.container .star-widget input{
+			display: none;
 
-}
-.star-widget label{
-  font-size: 20px;
-  color: #444;
-  padding: 5px;
-  float: right;
- justify-content: center;
-  transition: all 0.2s ease;
-}
- .s input:not(:checked) ~ label:hover,
- .s input:not(:checked) ~ label:hover ~ label{
-  color: #fd4;
-}
-input:checked ~ label{
-  color: #fd4;
-}
-input#rate-5:checked ~ label{
-  color: #fe7;
-  text-shadow: 0 0 20px #952;
-}
+		}
+		.star-widget label{
+			font-size: 20px;
+			color: #444;
+			padding: 5px;
+			float: right;
+			justify-content: center;
+			transition: all 0.2s ease;
+		}
+		.s input:not(:checked) ~ label:hover,
+		.s input:not(:checked) ~ label:hover ~ label{
+			color: #fd4;
+		}
+		input:checked ~ label{
+			color: #fd4;
+		}
+		input#rate-5:checked ~ label{
+			color: #fe7;
+			text-shadow: 0 0 20px #952;
+		}
 
-input{
-	display: none;
-	visibility: hidden;
-}
-		
-		
+		input{
+			display: none;
+			visibility: hidden;
+		}
 	</style>
 </head>
 <body>
-<!-- RATE -->
-<div class="s">	
-<div class="container star-widget">
-<input type="radio"  name="ratings" value="1" id="rate-5">
-<label class="fas fa-star" for="rate-5"></label>
-<input type="radio"  name="ratings" value="2" id="rate-4">
-<label class="fas fa-star" for="rate-4"></label>
-<input type="radio"  name="ratings" value="3" id="rate-3">
-<label class="fas fa-star" for="rate-3"></label>
-<input type="radio"  name="ratings" value="4" id="rate-2">
-<label class="fas fa-star" for="rate-2"></label>
-<input type="radio"  name="ratings" value="5" id="rate-1">
-<label class="fas fa-star" for="rate-1"></label>
-<button onclick="avg()">Submit</button>
-</div>
-</div>
+	<!-- RATE -->
+	<div class="s">	
+		<div class="container star-widget">
+			<input type="radio"  name="ratings" value="1" id="rate-5">
+			<label class="fas fa-star" for="rate-5"></label>
+			<input type="radio"  name="ratings" value="2" id="rate-4">
+			<label class="fas fa-star" for="rate-4"></label>
+			<input type="radio"  name="ratings" value="3" id="rate-3">
+			<label class="fas fa-star" for="rate-3"></label>
+			<input type="radio"  name="ratings" value="4" id="rate-2">
+			<label class="fas fa-star" for="rate-2"></label>
+			<input type="radio"  name="ratings" value="5" id="rate-1">
+			<label class="fas fa-star" for="rate-1"></label>
+			<button onclick="avg()">Submit</button>
+		</div>
+	</div>
 
-<!-- AVERAGE -->
-<br>
-<div class="container star-widget">
-<input type="radio" name="after" id="after5" class="after dis" disabled>
-<label class="fas fa-star" for="after5"></label>
-<input type="radio" name="after" id="after4" class="after dis" disabled>
-<label class="fas fa-star" for="after4"></label>
-<input type="radio" name="after" id="after3" class="after dis" disabled>
-<label class="fas fa-star" for="after3"></label>
-<input type="radio" name="after" id="after2" class="after dis" disabled>
-<label class="fas fa-star" for="after2"></label>
-<input type="radio" name="after" id="after1" class="after dis" disabled>
-<label class="fas fa-star" for="after1"></label>
-</div>
+	<!-- AVERAGE -->
+	<br>
+	<div class="container star-widget">
+		<input type="radio" name="after" id="after5" class="after dis" disabled>
+		<label class="fas fa-star" for="after5"></label>
+		<input type="radio" name="after" id="after4" class="after dis" disabled>
+		<label class="fas fa-star" for="after4"></label>
+		<input type="radio" name="after" id="after3" class="after dis" disabled>
+		<label class="fas fa-star" for="after3"></label>
+		<input type="radio" name="after" id="after2" class="after dis" disabled>
+		<label class="fas fa-star" for="after2"></label>
+		<input type="radio" name="after" id="after1" class="after dis" disabled>
+		<label class="fas fa-star" for="after1"></label>
+	</div>
 
-<div id="isi"></div>
-<script type="text/javascript">
+	<script type="text/javascript">
 		var rate1= document.getElementById("rate-1");
 		var rate2= document.getElementById("rate-2");
 		var rate3= document.getElementById("rate-3");
@@ -84,7 +76,6 @@ input{
 		var rate5= document.getElementById("rate-5");
 		var total = 0;
 		var numppl = 0;
-		var isi = document.getElementById("isi");
 		var average = 0;
 
 		var after1 = document.getElementById("after1");
@@ -96,107 +87,105 @@ input{
 
 		
 		
-	function avg(){
-	
-		if(rate5.checked){total= 5; numppl=1};
-		if(rate4.checked){total= 4; numppl=1};
-		if(rate3.checked){total= 3; numppl=1};
-		if(rate2.checked){total= 2; numppl=1};
-		if(rate1.checked){total= 1; numppl=1};
-		
-		
-		var ltotal = localStorage.getItem("total");
-		var lppl = localStorage.getItem("ppl");
+		function avg(){
 
-		
+			if(rate5.checked){total= 5; numppl=1};
+			if(rate4.checked){total= 4; numppl=1};
+			if(rate3.checked){total= 3; numppl=1};
+			if(rate2.checked){total= 2; numppl=1};
+			if(rate1.checked){total= 1; numppl=1};
 
-		total += Number(ltotal);
-		numppl += Number(lppl);
-		average = total/numppl;
-		
-		localStorage.setItem("total" , total);
-		localStorage.setItem("ppl" , numppl);
-		localStorage.setItem("ratings" , average);
-		isi.innerHTML = "The average rating is now " + localStorage.getItem("ratings");
-		
 
-		
+			var ltotal = localStorage.getItem("total");
+			var lppl = localStorage.getItem("ppl");
+
+
+
+			total += Number(ltotal);
+			numppl += Number(lppl);
+			average = total/numppl;
+
+			localStorage.setItem("total" , total);
+			localStorage.setItem("ppl" , numppl);
+			localStorage.setItem("ratings" , average);
+
 //AVERAGE
 var avg1 = localStorage.getItem("ratings");
-		if(avg1>=5){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = true;
-		after5.checked = true;
-		}
-		else if(avg1>=4){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = true;
-		after5.checked = false;
-		}
-		else if(avg1>=3){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = false;
-		after5.checked = false;
-		}
-		else if(avg1>=2){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = false;
-		after4.checked = false;
-		after5.checked = false;
-		}
-		else if(avg1>=1){
-		after1.checked = true;
-		after2.checked = false;
-		after3.checked = false;
-		after4.checked = false;
-		after5.checked = false;
-		}
+if(avg1>=5){
+	after1.checked = true;
+	after2.checked = true;
+	after3.checked = true;
+	after4.checked = true;
+	after5.checked = true;
+}
+else if(avg1>=4){
+	after1.checked = true;
+	after2.checked = true;
+	after3.checked = true;
+	after4.checked = true;
+	after5.checked = false;
+}
+else if(avg1>=3){
+	after1.checked = true;
+	after2.checked = true;
+	after3.checked = true;
+	after4.checked = false;
+	after5.checked = false;
+}
+else if(avg1>=2){
+	after1.checked = true;
+	after2.checked = true;
+	after3.checked = false;
+	after4.checked = false;
+	after5.checked = false;
+}
+else if(avg1>=1){
+	after1.checked = true;
+	after2.checked = false;
+	after3.checked = false;
+	after4.checked = false;
+	after5.checked = false;
+}
 
-	}
+}
 	// AVERAGE IN LANDING PAGE
 	document.addEventListener("DOMContentLoaded", function(event) {
-	if(avg1>=5){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = true;
-		after5.checked = true;
+		if(avg1>=5){
+			after1.checked = true;
+			after2.checked = true;
+			after3.checked = true;
+			after4.checked = true;
+			after5.checked = true;
 		}
 		else if(avg1>=4){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = true;
-		after5.checked = false;
+			after1.checked = true;
+			after2.checked = true;
+			after3.checked = true;
+			after4.checked = true;
+			after5.checked = false;
 		}
 		else if(avg1>=3){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = true;
-		after4.checked = false;
-		after5.checked = false;
+			after1.checked = true;
+			after2.checked = true;
+			after3.checked = true;
+			after4.checked = false;
+			after5.checked = false;
 		}
 		else if(avg1>=2){
-		after1.checked = true;
-		after2.checked = true;
-		after3.checked = false;
-		after4.checked = false;
-		after5.checked = false;
+			after1.checked = true;
+			after2.checked = true;
+			after3.checked = false;
+			after4.checked = false;
+			after5.checked = false;
 		}
 		else if(avg1>=1){
-		after1.checked = true;
-		after2.checked = false;
-		after3.checked = false;
-		after4.checked = false;
-		after5.checked = false;
-		}});
+			after1.checked = true;
+			after2.checked = false;
+			after3.checked = false;
+			after4.checked = false;
+			after5.checked = false;
+		}
+	});
 </script>
 </body>
 </html>
