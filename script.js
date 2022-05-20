@@ -80,84 +80,6 @@ var tts = window.speechSynthesis;
 // array list for the type of voices
 var voices = [];
 
-// Rating scripts
-var rate1= document.getElementById("rate-1");
-var rate2= document.getElementById("rate-2");
-var rate3= document.getElementById("rate-3");
-var rate4= document.getElementById("rate-4");
-var rate5= document.getElementById("rate-5");
-var total = 0;
-var numppl = 0;
-var average = 0;
-
-var after1 = document.getElementById("after1");
-var after2 = document.getElementById("after2");
-var after3 = document.getElementById("after3");
-var after4 = document.getElementById("after4");
-var after5 = document.getElementById("after5");
-var avg1 = localStorage.getItem("ratings");
-
-
-function avg(){
-    if(rate5.checked){total= 5; numppl=1};
-    if(rate4.checked){total= 4; numppl=1};
-    if(rate3.checked){total= 3; numppl=1};
-    if(rate2.checked){total= 2; numppl=1};
-    if(rate1.checked){total= 1; numppl=1};
-
-
-    var ltotal = localStorage.getItem("total");
-    var lppl = localStorage.getItem("ppl");
-
-
-
-    total += Number(ltotal);
-    numppl += Number(lppl);
-    average = total/numppl;
-
-    localStorage.setItem("total" , total);
-    localStorage.setItem("ppl" , numppl);
-    localStorage.setItem("ratings" , average);
-
-    //Get average rating of individual story
-    var avg1 = localStorage.getItem("ratings");
-    if(avg1>=5){
-        after1.checked = true;
-        after2.checked = true;
-        after3.checked = true;
-        after4.checked = true;
-        after5.checked = true;
-    }
-    else if(avg1>=4){
-        after1.checked = true;
-        after2.checked = true;
-        after3.checked = true;
-        after4.checked = true;
-        after5.checked = false;
-    }
-    else if(avg1>=3){
-        after1.checked = true;
-        after2.checked = true;
-        after3.checked = true;
-        after4.checked = false;
-        after5.checked = false;
-    }
-    else if(avg1>=2){
-        after1.checked = true;
-        after2.checked = true;
-        after3.checked = false;
-        after4.checked = false;
-        after5.checked = false;
-    }
-    else if(avg1>=1){
-        after1.checked = true;
-        after2.checked = false;
-        after3.checked = false;
-        after4.checked = false;
-        after5.checked = false;
-    }
-}
-
 // get the voice type from the list of voice and play it
 GetVoices();
 if (speechSynthesis !== undefined) {
@@ -203,8 +125,70 @@ function GetVoices() {
 
     voicelist.selectedIndex = 0;
 }
+var ratee = document.getElementsByClassName("rating1");
+		var after = document.getElementsByClassName("rating2")
+
+		var total = 0;
+		var numppl = 0;
+		var average = 0;
+
+		function rate(){
+
+			
+
+			var j = 5;
+			for (var i = 0 ; i < ratee.length ; i++) {
+				numppl = 1;
+				if (ratee[i].checked) {
+					total = j;
+					break;
+				}
+				j -= 0.5;
+			}
+
+			var ltotal = localStorage.getItem("total");
+			var lppl = localStorage.getItem("ppl");
+
+			total += Number(ltotal);
+			numppl += Number(lppl);
+			average = total/numppl;
+			
+			localStorage.setItem("total" , total);
+			localStorage.setItem("ppl" , numppl);
+			localStorage.setItem("ratings" , average);
+
+			var avg1 = localStorage.getItem("ratings");
+
+			//DISPLAYING AVERAGE RATING
+			j = 5;
+			for (var i = 0 ; i < after.length ; i++) {
+
+				if (j > avg1) {
+					j-=0.5;
+					after[i].checked = false;
+				}
+				else {
+					after[i].checked = true;
+				}
+			}
+
+			
+		}
 
 document.addEventListener('DOMContentLoaded', function() {
+
+	var avg1 = localStorage.getItem("ratings");
+		j = 5;
+			for (var i = 0 ; i < after.length ; i++) {
+
+				if (j > avg1) {
+					j-=0.5;
+					after[i].checked = false;
+				}
+				else {
+					after[i].checked = true;
+				}
+			}
 
     var page_num = localStorage.getItem('current_page');
     var inputVoice = document.getElementById('voicelist');
@@ -290,42 +274,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Average for landing page
-    if(avg1>=5){
-            after1.checked = true;
-            after2.checked = true;
-            after3.checked = true;
-            after4.checked = true;
-            after5.checked = true;
-        }
-        else if(avg1>=4){
-            after1.checked = true;
-            after2.checked = true;
-            after3.checked = true;
-            after4.checked = true;
-            after5.checked = false;
-        }
-        else if(avg1>=3){
-            after1.checked = true;
-            after2.checked = true;
-            after3.checked = true;
-            after4.checked = false;
-            after5.checked = false;
-        }
-        else if(avg1>=2){
-            after1.checked = true;
-            after2.checked = true;
-            after3.checked = false;
-            after4.checked = false;
-            after5.checked = false;
-        }
-        else if(avg1>=1){
-            after1.checked = true;
-            after2.checked = false;
-            after3.checked = false;
-            after4.checked = false;
-            after5.checked = false;
-        }
 });
 
 function story_load(){
