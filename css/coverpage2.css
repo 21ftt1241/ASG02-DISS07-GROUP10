@@ -22,8 +22,8 @@ body {
 
 .main_grid {
 	margin: auto auto;
-	width: 80%;
-	height: 80%;
+	width: 90%;
+	height: 90%;
 	padding: 1%;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
