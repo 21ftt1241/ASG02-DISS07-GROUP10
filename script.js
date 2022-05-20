@@ -336,9 +336,5 @@ function story_load(){
         document.getElementById("textS").innerHTML = current_story_mal;
     }
 }
-
-function clearStorage(){
-    localStorage.clear();
-}
 // -----------------------------------------------------------
 
