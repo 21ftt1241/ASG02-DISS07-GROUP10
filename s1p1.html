@@ -4,32 +4,36 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>s1p1</title>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-	<style type="text/css">
-		a{
-			text-decoration: none;
-			color: black;
-		}
-	</style>
+
+	<link rel="stylesheet" href="css/readingpage1.css">
+	<script type="script.js"></script>
+
 </head>
 
-<body onload="story_load()" onchange="story_load()">
+<body onload="story_load()" onchange="story_load()" class="background1">
 
 	<div class="container">
 
 	<div class="main_grid">
 
-		<div><button>Back to Home</button></div>
+		<div class="home_button"><a href=""><button>Back to Home</button></a></div>
 
-		<div>Title</div>
+		<div class="story_title"><div>Alice In Wonderland</div></div>
 
-		<div>Theme</div>
-		<div>Rate</div>
+		<div class="theme">
+			<select name="themeChoice" id="choice" onchange ="themeSelection()">
+				<option disabled selected>Select Theme</option>
+				<option value="default">Default</option>
+				<option value="opt1">Option 1</option>
+				<option value="opt2">Option 2</option>
+				<option value="opt3">Option 3</option>
+			</select>
+		</div>
+		<div class="rate_button"><a href=""><button class="bruhh">Rate Story</button></a></div>
 		
-		<div id="textS"></div>
+		<div class="display_text1"><div class="display_text2" id="textS"></div></div>
 
-		<div>
+		<div class="language_div">
 			<div>
 				<label for="lang_list"> Select language: 
 				<select name="" id="lang_list">
@@ -38,19 +42,20 @@
 				</select>
 			</label>
 			</div>
-			<div>
-				font resize
+			<div class="size_button">
+				<button id="btn1" onclick="fontIncrease()">Increase</button>
+				<button id="btn2" onclick="fontDecrease()">Decrease</button>
 			</div>
 		</div>
 
 		<!-- Voice media button -->
-		<div>
-			<div>
+		<div class="audio_div">
+			<div class="voice_div">
 				<label for="voicelist">Select voice: <select name="" id="voicelist"></select></label>
 				<button id="saveV">Save Voices</button>
 				<button id="resetV">Reset Voices</button>
 			</div>
-			<div>
+			<div class="voice_function">
 				<button id="btnSpeak">Speak!</button>
 				<button onclick="pauseVoice()">Pause</button>
 				<button onclick="resumeVoice()">Resume</button>
@@ -60,9 +65,9 @@
 
 		<!-- Save or reset voices to default -->
 
-		<div>
-			<div>page</div>
-			<div><button><a href="s1p2.html">Next Page</a></button></div>
+		<div class="footer_div">
+			<div class="page_no"><div class="page_no_deco">Page 1 / 2</div></div>
+			<div class="next_button"><a href="s1p2.html"><button>Next Page</button></a></div>
 		</div>
 
 	</div>
