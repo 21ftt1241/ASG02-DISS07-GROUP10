@@ -2,7 +2,12 @@
 <html>
 <head>
 	<title>s1coverpage</title>
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/coverpage1.css">
+	<link rel="stylesheet" href="css/avgRating.css">
 </head>
 <body class="backgroundcp">
 
@@ -15,14 +20,57 @@
 			<div class="text_design1">Alice In Wonderland</div>
 			<div class="text_design11">Lewis Carroll</div>
 
-			<div class="text_design2">Average Rating: <div class="rating"></div></div>
+			<div class="text_design2">Average Rating:
+				<div class="avgRating">
+					<fieldset class="rating">
+						<input type="radio" id="after10"  class="rating2" value="5" disabled/>
+						<label for="after10" class="full" title="Awesome"></label>
+						<input type="radio" id="after9"  class="rating2" value="4.5" disabled/>
+						<label for="after9" class="half"></label>
+						<input type="radio" id="after8"  class="rating2" value="4" disabled/>
+						<label for="after8" class="full"></label>
+						<input type="radio" id="after7"  class="rating2" value="3.5" disabled/>
+						<label for="after7" class="half"></label>
+						<input type="radio" id="after6"  class="rating2" value="3" disabled/>
+						<label for="after6" class="full"></label>
+						<input type="radio" id="after5"  class="rating2" value="2.5" disabled/>
+						<label for="after5" class="half"></label>
+						<input type="radio" id="after4"  class="rating2" value="2" disabled/>
+						<label for="after4" class="full"></label>
+						<input type="radio" id="after3"  class="rating2" value="1.5" disabled/>
+						<label for="after3" class="half"></label>
+						<input type="radio" id="after2"  class="rating2" value="1" disabled/>
+						<label for="after2" class="full"></label>
+						<input type="radio" id="after1"  class="rating2" value="0.5" disabled/>
+						<label for="after1" class="half"></label>
+					</fieldset>
+				</div>
+			</div>
 			<div class="text_design3">"Alice's Adventures in Wonderland by Lewis Carroll is a story about Alice who falls down a rabbit hole and lands into a fantasy world that is full of weird, wonderful people and animals. It is classic children's book that is also popular with adults."</div>
+
 			<div class="button_placement"><button class="read_button">READ NOW</button></div>
-			
 		</div>
-		
 	</div>
 
+</div>
 
+<script type="text/javascript">
+	var after = document.getElementsByClassName("rating2")
+	document.addEventListener("DOMContentLoaded", function(event) {
+		var avg1 = localStorage.getItem("ratings");
+			// avg1 = 3;
+			j = 5;
+			for (var i = 0 ; i < after.length ; i++) {
+
+				if (j > avg1) {
+					j-=0.5;
+					after[i].checked = false;
+				}
+				else {
+					after[i].checked = true;
+				}
+			}
+		})
+	</script>
 </body>
 </html>
