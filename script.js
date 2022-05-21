@@ -342,10 +342,9 @@ if(getTheme === "DEFAULT"){
 }
 
 // fontresizer
-var btn1 = document.getElementById("btn1");
+	var btn1 = document.getElementById("btn1");
 	var btn2 = document.getElementById("btn2");
-	var text = document.getElementById("text");
-	var isi = document.getElementById("isi");
+	var text = document.getElementById("textS");
 	var size;
 
 	var size1 = localStorage.getItem("fonts");

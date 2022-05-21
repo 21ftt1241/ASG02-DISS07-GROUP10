@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	
 }
 
 a {
@@ -7,35 +8,35 @@ a {
 	color: black;
 }
 .background1 {
-	background-color: pink;
+	position: static;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-image: url("../images/bg_rp.webp"); 
 }
 
 .container {
 	width: 100%
-	height: auto;
-
+	height: 100%;
 }
 
 .main_grid {
 	display: grid;
 	width: 95%;
-	height: 100%;
+	height: 60vh;
 	margin: 20px auto;
 	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: 10% auto 10% auto 10% 10% 10%;
-	border: solid 1px;
+	grid-template-rows: 10% 20% 10% 50% 10% 10% 10%;
+
+	grid-row-gap: 20px;
 }
 
 .main_grid>div {
-	border: solid 1px;
-	height: 100%;
 	width: 100%;
 }
 
 .home_button {
-	/*display: flex;*/
-	/*align-items: center;*/
-	/*justify-content: center;*/
 	justify-content: left;
 	width: 100%;
 	height: 100%;
@@ -44,7 +45,6 @@ a {
 .home_button>a {
 	width: 100%;
 	height: 100%;
-
 	display: flex;
 	align-items: center;
 	justify-content: left;
@@ -61,6 +61,7 @@ a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-color: white;
 }
 
 .story_title>div {
@@ -68,13 +69,11 @@ a {
 	font-size: 2.5em;
 	font-family: Helvetica;
 	font-weight: bolder;
-
 }
 
 .theme {
 	grid-row: 3 / 4;
 	grid-column: 1 / 2;
-
 	display: flex;
 	align-items: center;
 	justify-content: left;
@@ -107,22 +106,31 @@ a {
 .display_text1 {
 	grid-row: 4 / 5;
 	grid-column: 1 / 4;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
 	text-align: justify;
-
-	border: solid 1px;
-
 	height: 100%;
 	width: 90%;
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+#textS {
+	display: flex;
+	justify-content: center;
+	width: auto;
+	height: auto;
+	padding-top: 20px;
+	line-height: 2em;
+	font-family: Helvetica;
+	font-weight: bold;
 }
 
 .display_text2 {
-	width: 100%;
+	width: auto;
+	height: auto;
 	padding: 20px;
+	line-height: 2em;
+	font-family: Helvetica;
+	font-weight: bold;
 }
 
 .language_div {
@@ -136,25 +144,33 @@ a {
 .language_div>div {
 	width: 100%;
 	height: 100%;
-	border: solid 1px;
-
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: left;
 }
 
 .language_div>div>label {
 	padding-left: 20px;
-	width: 100%;
+	width: 80%;
 	height: 80%;
+	background-color: white;
 }
 
 .language_div>div>label>select {
-
-	width: 25%;
+	width: 80%;
 	height: 100%;
 }
 
+.size_button>button {
+	height: 80%;
+	width: 25%;
+	margin-left: 5px;
+}
+
+.language_div>.size_button {
+	display: flex;
+	justify-content: right;
+}
 
 .audio_div {
 	display: grid;
@@ -164,22 +180,16 @@ a {
 	grid-column: 1 / 4;
 }
 
-.audio_div>div {
-	border: solid 1px;
+.audio_div>.voice_div>label {
+	background-color: white;
 }
-
-
-
 
 .voice_div {
 	grid-column: 1 / 3;
-
 	width: 100%;
 	height: 100%;
-
 	display: flex;
 	align-items: center;
-
 	margin: 0 auto;
 }
 
@@ -187,30 +197,20 @@ a {
 	margin-left: 5px;
 	height: 80%;
 	width: 15%;
-
-/*	display: flex;
-	align-items: center;*/
 }
 
 .voice_div>label {
-
 	padding-left: 20px;
-
 	width: 60%;
-	height: 100%;
-
+	height: 80%;
 	display: flex;
 	align-items: center;
 }
 
 .voice_div>label>select {
 	width: 80%;
-	height: 80%;
+	height: 100%;
 }
-
-
-
-
 
 .voice_function {
 	display: flex;
@@ -224,11 +224,6 @@ a {
 	width: 25%;
 }
 
-
-
-
-
-
 .footer_div {
 	display: grid;
 	width: 100%;
@@ -238,15 +233,10 @@ a {
 }
 
 .footer_div>div {
-	border: solid 1px;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
-
-
 
 .page_no {
 	grid-column: 2 / 3;
@@ -256,9 +246,16 @@ a {
 	font-weight: bolder;
 	font-family: Helvetica;
 	font-size: 1.5em;
+
+	background-color: white;
+
+	width: 50%;
+	height: 80%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
-
 
 .prev_button {
 	grid-column: 1 / 2;
@@ -300,8 +297,6 @@ a {
 }
 
 
-
-
 /*Color Selection*/
 
 .default{
@@ -319,6 +314,11 @@ a {
 .black-text{
 	background: #95AF9C ;
 	color: #000B18;
+}
+
+button:hover {
+	box-shadow: 0 2px 30px 2px rgba(0.9,0.9,0.9,0.9);
+	transition: 0.5s;
 }
 
 
