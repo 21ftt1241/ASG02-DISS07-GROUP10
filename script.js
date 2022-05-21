@@ -224,11 +224,127 @@ function story_load(){
 	}
 }
 
+
+
+// Theme
+var set = document.getElementById("textS");
+
+//DEFAULT
+function defaultTheme(){
+	set.classList.toggle("default");
+	var theme;
+
+	if(set.classList.contains("default")){
+		theme = "DEFAULT";
+	}
+	if(set.classList.contains("dark-mode")){
+		set.classList.toggle("dark-mode");
+	}
+	else if(set.classList.contains("orange")){
+		set.classList.toggle("orange");
+	}
+	else if(set.classList.contains("black-text")){
+		set.classList.toggle("black-text");}
+
+	localStorage.setItem("pagetheme" , JSON.stringify(theme));	
+}
+//OPTION 1
+function opt1(){
+	set.classList.toggle("dark-mode");
+	var theme;
+
+	if(set.classList.contains("dark-mode")){
+		theme = "DARK";
+	}
+	if(set.classList.contains("orange")){
+		set.classList.toggle("orange");
+	}
+	else if(set.classList.contains("black-text")){
+		set.classList.toggle("black-text");}
+	else if(set.classList.contains("default")){
+		set.classList.toggle("default");}
+
+	localStorage.setItem("pagetheme" , JSON.stringify(theme));
+
+	}
+
+
+//OPTION 2
+function opt2(){
+	set.classList.toggle("orange");
+	var theme;
+
+	if(set.classList.contains("orange")){
+		theme = "ORANGE";
+	}
+
+	if(set.classList.contains("dark-mode")){
+		set.classList.toggle("dark-mode");
+	}
+	else if(set.classList.contains("black-text")){
+		set.classList.toggle("black-text");}
+
+	else if(set.classList.contains("default")){
+		set.classList.toggle("default");}	
+
+	localStorage.setItem("pagetheme" , JSON.stringify(theme));
+	}
+
+//OPTION 3
+function opt3(){
+	set.classList.toggle("black-text");
+	var theme;
+
+	if(set.classList.contains("black-text")){
+		theme = "BLACK";
+	}
+
+	if(set.classList.contains("dark-mode")){
+		set.classList.toggle("dark-mode");
+	}
+	else if(set.classList.contains("orange")){
+		set.classList.toggle("orange");}
+	else if(set.classList.contains("default")){
+		set.classList.toggle("default");}	
+
+	localStorage.setItem("pagetheme" , JSON.stringify(theme));
+
+	}
+
+function themeSelection(){
+	var choice = document.getElementById("choice");
+	if(choice.options[choice.selectedIndex].value=="opt1"){
+		opt1();
+	}
+	if(choice.options[choice.selectedIndex].value=="opt2"){
+		opt2();
+	}
+	if(choice.options[choice.selectedIndex].value=="opt3"){
+		opt3();
+	}
+	if(choice.options[choice.selectedIndex].value=="default"){
+		defaultTheme();
+	}
+}
+
+let getTheme = JSON.parse(localStorage.getItem("pagetheme"));
+if(getTheme === "DARK"){
+	set.classList = "dark-mode display_text2";
+}
+if(getTheme === "ORANGE"){
+	set.classList = "orange display_text2";
+}
+if(getTheme === "BLACK"){
+	set.classList = "black-text display_text2";
+}
+if(getTheme === "DEFAULT"){
+	set.classList = "default display_text2";
+}
+
 // fontresizer
-var btn1 = document.getElementById("btn1");
+	var btn1 = document.getElementById("btn1");
 	var btn2 = document.getElementById("btn2");
-	var text = document.getElementById("text");
-	var isi = document.getElementById("isi");
+	var text = document.getElementById("textS");
 	var size;
 
 	var size1 = localStorage.getItem("fonts");
