@@ -83,207 +83,147 @@ var voices = [];
 // get the voice type from the list of voice and play it
 GetVoices();
 if (speechSynthesis !== undefined) {
-    speechSynthesis.onvoiceschanged = GetVoices;
+	speechSynthesis.onvoiceschanged = GetVoices;
 }
 
 // Turn on voice synthesis
 btnSpeak.addEventListener('click', () => {
-    var toSpeak = new SpeechSynthesisUtterance(inputText.innerHTML);
-    var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
-    voices.forEach((voice) => {
-        if (voice.name === selectedVoiceName) {
-            toSpeak.voice = voice;
-        }
-    });
-    tts.speak(toSpeak);
+	var toSpeak = new SpeechSynthesisUtterance(inputText.innerHTML);
+	var selectedVoiceName = voicelist.selectedOptions[0].getAttribute('data-name');
+	voices.forEach((voice) => {
+		if (voice.name === selectedVoiceName) {
+			toSpeak.voice = voice;
+		}
+	});
+	tts.speak(toSpeak);
 });
 
 function pauseVoice() {
-    tts.pause();
+	tts.pause();
 }
 
 function resumeVoice() {
-    tts.resume();
+	tts.resume();
 }
 
 function stopVoice() {
-    tts.cancel();
+	tts.cancel();
 }
 
 // get the list of available voice type and display it on a select list
 function GetVoices() {
-    voices = tts.getVoices();
-    var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
-    voicelist.innerHTML = '';
-    voices.forEach((voice) => {
-        var listItem = document.createElement('option');
-        listItem.textContent = voice.name;
-        listItem.setAttribute('data-lang', voice.lang);
-        listItem.setAttribute('data-name', voice.name);
-        voicelist.appendChild(listItem);
-    });
+	voices = tts.getVoices();
+	var selectedIndex = voicelist.selectedIndex < 0 ? 0 : voicelist.selectedIndex;
+	voicelist.innerHTML = '';
+	voices.forEach((voice) => {
+		var listItem = document.createElement('option');
+		listItem.textContent = voice.name;
+		listItem.setAttribute('data-lang', voice.lang);
+		listItem.setAttribute('data-name', voice.name);
+		voicelist.appendChild(listItem);
+	});
 
-    voicelist.selectedIndex = 0;
+	voicelist.selectedIndex = 0;
 }
-var ratee = document.getElementsByClassName("rating1");
-		var after = document.getElementsByClassName("rating2")
 
-		var total = 0;
-		var numppl = 0;
-		var average = 0;
-
-		function rate(){
-
-			
-
-			var j = 5;
-			for (var i = 0 ; i < ratee.length ; i++) {
-				numppl = 1;
-				if (ratee[i].checked) {
-					total = j;
-					break;
-				}
-				j -= 0.5;
-			}
-
-			var ltotal = localStorage.getItem("total");
-			var lppl = localStorage.getItem("ppl");
-
-			total += Number(ltotal);
-			numppl += Number(lppl);
-			average = total/numppl;
-			
-			localStorage.setItem("total" , total);
-			localStorage.setItem("ppl" , numppl);
-			localStorage.setItem("ratings" , average);
-
-			var avg1 = localStorage.getItem("ratings");
-
-			//DISPLAYING AVERAGE RATING
-			j = 5;
-			for (var i = 0 ; i < after.length ; i++) {
-
-				if (j > avg1) {
-					j-=0.5;
-					after[i].checked = false;
-				}
-				else {
-					after[i].checked = true;
-				}
-			}
-
-			
-		}
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	var avg1 = localStorage.getItem("ratings");
-		j = 5;
-			for (var i = 0 ; i < after.length ; i++) {
+	var page_num = localStorage.getItem('current_page');
+	var inputVoice = document.getElementById('voicelist');
+	var saveVoices = document.getElementById('saveV');
+	var resetVoices = document.getElementById('resetV');
 
-				if (j > avg1) {
-					j-=0.5;
-					after[i].checked = false;
-				}
-				else {
-					after[i].checked = true;
-				}
-			}
-
-    var page_num = localStorage.getItem('current_page');
-    var inputVoice = document.getElementById('voicelist');
-    var saveVoices = document.getElementById('saveV');
-    var resetVoices = document.getElementById('resetV');
-    
-    switch(page_num){
-        case '1':
-        current_story_en = s1_1_en;
-        current_story_mal = s1_1_mal;
-        lang_check();
-        break;
-        case '2':
-        current_story_en = s1_2_en;
-        current_story_mal = s1_2_mal;
-        lang_check();
-        break;
-        case '3':
-        current_story_en = s1_3_en;
-        current_story_mal = s1_3_mal;
-        lang_check();
-        break;
-        case '4':
-        current_story_en = s2_1_en;
-        current_story_mal = s2_1_mal;
-        lang_check();
-        break;
-        case '5':
-        current_story_en = s2_2_en;
-        current_story_mal = s2_2_mal;
-        lang_check();
-        break;
-        case '6':
-        current_story_en = s2_3_en;
-        current_story_mal = s2_3_mal;
-        lang_check();
-        break;
-        case '7':
-        current_story_en = s3_1_en;
-        current_story_mal = s3_1_mal;
-        lang_check();
-        break;
-        case '8':
-        current_story_en = s3_2_en;
-        current_story_mal = s3_2_mal;
-        lang_check();
-        break;
-        case '9':
-        current_story_en = s3_3_en;
-        current_story_mal = s3_3_mal;
-        lang_check();
-        break;
-    }
+	switch(page_num){
+		case '1':
+		current_story_en = s1_1_en;
+		current_story_mal = s1_1_mal;
+		lang_check();
+		break;
+		case '2':
+		current_story_en = s1_2_en;
+		current_story_mal = s1_2_mal;
+		lang_check();
+		break;
+		case '3':
+		current_story_en = s1_3_en;
+		current_story_mal = s1_3_mal;
+		lang_check();
+		break;
+		case '4':
+		current_story_en = s2_1_en;
+		current_story_mal = s2_1_mal;
+		lang_check();
+		break;
+		case '5':
+		current_story_en = s2_2_en;
+		current_story_mal = s2_2_mal;
+		lang_check();
+		break;
+		case '6':
+		current_story_en = s2_3_en;
+		current_story_mal = s2_3_mal;
+		lang_check();
+		break;
+		case '7':
+		current_story_en = s3_1_en;
+		current_story_mal = s3_1_mal;
+		lang_check();
+		break;
+		case '8':
+		current_story_en = s3_2_en;
+		current_story_mal = s3_2_mal;
+		lang_check();
+		break;
+		case '9':
+		current_story_en = s3_3_en;
+		current_story_mal = s3_3_mal;
+		lang_check();
+		break;
+	}
 
     if (localStorage['voicelist']) { // if job is set
         inputVoice.value = localStorage['voicelist']; // set the value
     }
 
     saveVoices.onclick = function(){
-        localStorage['voicelist'] = inputVoice.value;
+    	localStorage['voicelist'] = inputVoice.value;
     }
 
     resetVoices.onclick = function(){
-        voicelist.selectedIndex = 0;
-        var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
-        localStorage['voicelist'] = defaultVoice;
+    	voicelist.selectedIndex = 0;
+    	var defaultVoice = voicelist.selectedOptions[0].getAttribute('data-name');
+    	localStorage['voicelist'] = defaultVoice;
     }
 
 
     if (localStorage['lang_list']){
-        inputLang.value = localStorage['lang_list'];
+    	inputLang.value = localStorage['lang_list'];
     }
 
     inputLang.onchange = function(){
-        localStorage['lang_list'] = this.value;
+    	localStorage['lang_list'] = this.value;
     }
 
     function lang_check(){
-        if (inputLang.value === "en"){
-            document.getElementById("textS").innerHTML = current_story_en;
-        }else if (inputLang.value === "mal"){
-            document.getElementById("textS").innerHTML = current_story_mal;
-        }
+    	if (inputLang.value === "en"){
+    		document.getElementById("textS").innerHTML = current_story_en;
+    	}else if (inputLang.value === "mal"){
+    		document.getElementById("textS").innerHTML = current_story_mal;
+    	}
     }
 
 });
 
 function story_load(){
-    if (inputLang.value === "en"){
-        document.getElementById("textS").innerHTML = current_story_en;
-    }
-    if (inputLang.value === "mal"){
-        document.getElementById("textS").innerHTML = current_story_mal;
-    }
+	if (inputLang.value === "en"){
+		document.getElementById("textS").innerHTML = current_story_en;
+	}
+	if (inputLang.value === "mal"){
+		document.getElementById("textS").innerHTML = current_story_mal;
+	}
 }
+
 
 
 // Theme
@@ -400,5 +340,64 @@ if(getTheme === "BLACK"){
 if(getTheme === "DEFAULT"){
 	set.classList = "default display_text2";
 }
+
+// fontresizer
+var btn1 = document.getElementById("btn1");
+	var btn2 = document.getElementById("btn2");
+	var text = document.getElementById("text");
+	var isi = document.getElementById("isi");
+	var size;
+
+	var size1 = localStorage.getItem("fonts");
+
+
+	if (size1 == 1) {
+		btn2.disabled = true;
+	}
+	else if (size1 == 3) {
+		btn1.disabled = true;
+	}
+	else {
+		btn2.disabled = true;
+	}
+
+	text.style.fontSize = size1+"em";
+
+	if(size!=size1){
+		size = 0;
+		size += parseInt(size1);
+	}
+	else{
+		size = 1;
+	}
+
+	function fontIncrease(){
+		size+=0.25;
+
+		if(size==3){
+			btn1.disabled = true;
+		}
+		else {
+			btn1.disabled = false;
+			btn2.disabled = false;
+		}
+
+		text.style.fontSize = size+"em";
+		localStorage.setItem("fonts", size);
+	}
+	function fontDecrease(){
+		size-=0.25;
+
+		if(size==1){
+			btn2.disabled = true;
+		}
+		else {
+			btn1.disabled = false;
+			btn2.disabled = false;
+		}
+
+		text.style.fontSize = size+"em";
+		localStorage.setItem("fonts", size);
+	}
 // -----------------------------------------------------------
 
