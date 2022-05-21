@@ -4,71 +4,77 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>s3p2</title>
-	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-	<link rel="stylesheet" href="style.css">
-	<style type="text/css">
-		a{
-			text-decoration: none;
-			color: black;
-		}
-	</style>
-	
+
+	<link rel="stylesheet" href="css/story1.css">
+	<script type="script.js"></script>
+
 </head>
-<body onload="story_load()" onchange="story_load()">
 
-	<div id="textS">
-	</div>
-	<br>
+<body onload="story_load()" onchange="story_load()" class="background1">
 
-	<div>
-		<label for="lang_list"> Select language: 
-			<select name="" id="lang_list">
-				<option value="en">English</option>
-				<option value="mal">Malay</option>
+	<div class="container">
+
+	<div class="main_grid">
+
+		<div class="home_button"><a href="index.html"><button>Back to Home</button></a></div>
+
+		<div class="story_title"><div>Little Women</div></div>
+
+		<div class="theme">
+			<select name="themeChoice" id="choice" onchange ="themeSelection()">
+				<option disabled selected>Select Theme</option>
+				<option value="default">Default</option>
+				<option value="opt1">Option 1</option>
+				<option value="opt2">Option 2</option>
+				<option value="opt3">Option 3</option>
 			</select>
-		</label>
+		</div>
+		<div class="rate_button"><a href="ratePOPUP.html"><button>Rate Story</button></a></div>
+		
+		<div class="display_text1"><div class="display_text2" id="textS"></div></div>
 
-				<!-- RATE -->
-		<div class="s">	
-			<div class="container star-widget">
-				<input type="radio"  name="ratings" value="1" id="rate-5">
-				<label class="fas fa-star" for="rate-5"></label>
-				<input type="radio"  name="ratings" value="2" id="rate-4">
-				<label class="fas fa-star" for="rate-4"></label>
-				<input type="radio"  name="ratings" value="3" id="rate-3">
-				<label class="fas fa-star" for="rate-3"></label>
-				<input type="radio"  name="ratings" value="4" id="rate-2">
-				<label class="fas fa-star" for="rate-2"></label>
-				<input type="radio"  name="ratings" value="5" id="rate-1">
-				<label class="fas fa-star" for="rate-1"></label>
-				<button onclick="avg()">Submit</button>
+		<div class="language_div">
+			<div>
+				<label for="lang_list">Select language:
+				<select name="" id="lang_list">
+					<option value="en">English</option>
+					<option value="mal">Malay</option>
+				</select>
+			</label>
+			</div>
+			<div class="size_button">
+				<button id="btn1" onclick="fontIncrease()">Increase</button>
+				<button id="btn2" onclick="fontDecrease()">Decrease</button>
 			</div>
 		</div>
-		<br>
-	
-		<br>
-		<button id="btnSpeak">Speak!</button>
-		<button onclick="pauseVoice()">Pause</button>
-		<button onclick="resumeVoice()">Resume</button>
-		<button onclick="stopVoice()">Stop</button>
 
-		<br>
-		<label for="voicelist">Select voice: <select name="" id="voicelist"></select>
-		</label>
-		<button id="saveV">Save Voices</button>
-		<button id="resetV">Reset Voices</button>
-		
+		<!-- Voice media button -->
+		<div class="audio_div">
+			<div class="voice_div">
+				<label for="voicelist">Select voice: <select name="" id="voicelist"></select></label>
+				<button id="saveV">Save Voices</button>
+				<button id="resetV">Reset Voices</button>
+			</div>
+			<div class="voice_function">
+				<button id="btnSpeak">Speak!</button>
+				<button onclick="pauseVoice()">Pause</button>
+				<button onclick="resumeVoice()">Resume</button>
+				<button onclick="stopVoice()">Stop</button>
+			</div>
+		</div>
+
+		<!-- Save or reset voices to default -->
+
+		<div class="footer_div">
+			<div class="page_no"><div class="page_no_deco">Page 2 / 2</div></div>
+			<div class="next_button"><a href="s3p1.html"><button>Previous Page</button></a></div>
+		</div>
+
 	</div>
 
-	<div><button><a href="s3p3.html">Next Page</a></button></div>
-	<div><button><a href="s3p1.html">Previous Page</a></button></div>
-	<div><button onclick="clearStorage()">Clear</button></div>
+	</div>
 
-	<script src="script.js">
-
-	</script>
-
+	<script src="script.js"></script>
 	<script type="text/javascript">
 		localStorage.setItem ('current_page', 8);
 	</script> 
