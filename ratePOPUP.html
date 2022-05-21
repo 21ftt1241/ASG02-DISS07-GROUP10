@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Star rating</title>
+	<style type="text/css">
+		@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css);
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	font-family: Helvetica, sans-serif;
+}
+
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+}
+
+.rating-wrap{
+	max-width: 480px;
+	margin: auto;
+	padding: 15px;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+	text-align: center;
+}
+
+.center{
+	width: 162px; 
+	margin: auto;
+}
+
+
+#rating-value{	
+	width: 110px;
+	margin: 40px auto 0;
+	padding: 10px 5px;
+	text-align: center;
+	box-shadow: inset 0 0 2px 1px rgba(46,204,113,.2);
+}
+
+.rating{
+	border: none;
+	float: left;
+}
+
+.rating > input{
+	display: none;
+}
+
+.rating > label:before{
+	content: '\f005';
+	font-family: FontAwesome;
+	margin: 5px;
+	font-size: 1.5rem;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.rating > .half:before{
+	content: '\f089';
+	position: absolute;
+	cursor: pointer;
+}
+
+
+.rating > label{
+	color: #ddd;
+	float: right;
+	cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.hover:not(:checked) > label:hover, 
+.hover:not(:checked) > label:hover ~ label{
+	color: #2ce679;
+}
+
+.hover > input:checked + label:hover,
+.hover > input:checked ~ label:hover,
+.hover > label:hover ~ input:checked ~ label,
+.hover > input:checked ~ label:hover ~ label{
+	color: #2ddc76;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="rating-wrap">
+			<h2>Rate</h2>
+			<div class="center">
+				<fieldset class="rating hover">
+					<input type="radio" id="star10" name="rating" class="rating1" value="5"/>
+					<label for="star10" class="full" title="Awesome"></label>
+					<input type="radio" id="star9" name="rating" class="rating1" value="4.5"/>
+					<label for="star9" class="half"></label>
+					<input type="radio" id="star8" name="rating" class="rating1" value="4"/>
+					<label for="star8" class="full"></label>
+					<input type="radio" id="star7" name="rating" class="rating1" value="3.5"/>
+					<label for="star7" class="half"></label>
+					<input type="radio" id="star6" name="rating" class="rating1" value="3"/>
+					<label for="star6" class="full"></label>
+					<input type="radio" id="star5" name="rating" class="rating1" value="2.5"/>
+					<label for="star5" class="half"></label>
+					<input type="radio" id="star4" name="rating" class="rating1" value="2"/
+					><label for="star4" class="full"></label>
+					<input type="radio" id="star3" name="rating" class="rating1" value="1.5"/>
+					<label for="star3" class="half"></label>
+					<input type="radio" id="star2" name="rating" class="rating1" value="1"/>
+					<label for="star2" class="full"></label>
+					<input type="radio" id="star1" name="rating" class="rating1" value="0.5"/>
+					<label for="star1" class="half"></label>
+				</fieldset>
+				<div>
+				<fieldset class="rating">
+					<input type="radio" id="after10"  class="rating2" value="5"/>
+					<label for="after10" class="full" title="Awesome"></label>
+					<input type="radio" id="after9"  class="rating2" value="4.5"/>
+					<label for="after9" class="half"></label>
+					<input type="radio" id="after8"  class="rating2" value="4"/>
+					<label for="after8" class="full"></label>
+					<input type="radio" id="after7"  class="rating2" value="3.5"/>
+					<label for="after7" class="half"></label>
+					<input type="radio" id="after6"  class="rating2" value="3"/>
+					<label for="after6" class="full"></label>
+					<input type="radio" id="after5"  class="rating2" value="2.5"/>
+					<label for="after5" class="half"></label>
+					<input type="radio" id="after4"  class="rating2" value="2"/>
+					<label for="after4" class="full"></label>
+					<input type="radio" id="after3"  class="rating2" value="1.5"/>
+					<label for="after3" class="half"></label>
+					<input type="radio" id="after2"  class="rating2" value="1"/>
+					<label for="after2" class="full"></label>
+					<input type="radio" id="after1"  class="rating2" value="0.5"/>
+					<label for="after1" class="half"></label>
+				</fieldset>
+				</div>
+			</div>
+
+			<button onclick="rate()">Submit</button>
+			<button onclick="back()"><a id="pageReturn" href="">Back</a></button>
+		</div>
+
+	</div>
+	<script type="text/javascript">
+		
+
+		var ratee = document.getElementsByClassName("rating1");
+		var after = document.getElementsByClassName("rating2")
+
+		var total = 0;
+		var numppl = 0;
+		var average = 0;
+
+
+		function rate(){
+
+			
+
+			var j = 5;
+			for (var i = 0 ; i < ratee.length ; i++) {
+				numppl = 1;
+				if (ratee[i].checked) {
+					total = j;
+					break;
+				}
+				j -= 0.5;
+			}
+
+			var ltotal = localStorage.getItem("total");
+			var lppl = localStorage.getItem("ppl");
+
+			total += Number(ltotal);
+			numppl += Number(lppl);
+			average = total/numppl;
+			
+			localStorage.setItem("total" , total);
+			localStorage.setItem("ppl" , numppl);
+			localStorage.setItem("ratings" , average);
+
+			var avg1 = localStorage.getItem("ratings");
+
+			//DISPLAYING AVERAGE RATING
+			j = 5;
+			for (var i = 0 ; i < after.length ; i++) {
+
+				if (j > avg1) {
+					j-=0.5;
+					after[i].checked = false;
+				}
+				else {
+					after[i].checked = true;
+				}
+			}
+
+			
+		}
+		document.addEventListener("DOMContentLoaded", function(event) {
+		var avg1 = localStorage.getItem("ratings");
+		j = 5;
+			for (var i = 0 ; i < after.length ; i++) {
+
+				if (j > avg1) {
+					j-=0.5;
+					after[i].checked = false;
+				}
+				else {
+					after[i].checked = true;
+				}
+			}
+		})
+		
+	function back(){
+		var pagenum = 2;
+		var pageReturn = document.getElementById("pageReturn");
+		if(pagenum==1){
+		pageReturn.href = "theme.html";
+		}
+		else if(pagenum==2){
+		pageReturn.href = "fontresizer.html";
+		}
+	}
+	</script>
+</body>
+</html>

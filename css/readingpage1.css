@@ -1,0 +1,325 @@
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+.background1 {
+	background-color: pink;
+}
+
+.container {
+	width: 100%
+	height: auto;
+
+}
+
+.main_grid {
+	display: grid;
+	width: 95%;
+	height: 100%;
+	margin: 20px auto;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 10% auto 10% auto 10% 10% 10%;
+	border: solid 1px;
+}
+
+.main_grid>div {
+	border: solid 1px;
+	height: 100%;
+	width: 100%;
+}
+
+.home_button {
+	/*display: flex;*/
+	/*align-items: center;*/
+	/*justify-content: center;*/
+	justify-content: left;
+	width: 100%;
+	height: 100%;
+}
+
+.home_button>a {
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: left;
+}
+
+.home_button>a>button {
+	height: 80%;
+	width: 50%;
+}
+
+.story_title {
+	grid-row: 2 / 3;
+	grid-column: 1 / 4;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.story_title>div {
+	padding: 20px 0;
+	font-size: 2.5em;
+	font-family: Helvetica;
+	font-weight: bolder;
+
+}
+
+.theme {
+	grid-row: 3 / 4;
+	grid-column: 1 / 2;
+
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	float: left;
+}
+
+.theme>select {
+	width: 50%;
+	height: 80%;
+}
+
+.rate_button {
+	grid-row: 3 / 4;
+	grid-column: 3 / 4;
+}
+
+.rate_button>a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.rate_button>a>button {
+	width: 50%;
+	height: 80%;
+}
+
+.display_text1 {
+	grid-row: 4 / 5;
+	grid-column: 1 / 4;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-align: justify;
+
+	border: solid 1px;
+
+	height: 100%;
+	width: 90%;
+}
+
+.display_text2 {
+	width: 100%;
+	padding: 20px;
+}
+
+.language_div {
+	display: grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr;
+	grid-row: 5 / 6;
+	grid-column: 1 / 4;
+}
+
+.language_div>div {
+	width: 100%;
+	height: 100%;
+	border: solid 1px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.language_div>div>label {
+	padding-left: 20px;
+	width: 100%;
+	height: 80%;
+}
+
+.language_div>div>label>select {
+
+	width: 25%;
+	height: 100%;
+}
+
+
+.audio_div {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(3, 1fr);
+	grid-row: 6 / 7;
+	grid-column: 1 / 4;
+}
+
+.audio_div>div {
+	border: solid 1px;
+}
+
+
+
+
+.voice_div {
+	grid-column: 1 / 3;
+
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+
+	margin: 0 auto;
+}
+
+.voice_div>button {
+	margin-left: 5px;
+	height: 80%;
+	width: 15%;
+
+/*	display: flex;
+	align-items: center;*/
+}
+
+.voice_div>label {
+
+	padding-left: 20px;
+
+	width: 60%;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+}
+
+.voice_div>label>select {
+	width: 80%;
+	height: 80%;
+}
+
+
+
+
+
+.voice_function {
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.voice_function>button {
+	margin-left: 5px;
+	height: 80%;
+	width: 25%;
+}
+
+
+
+
+
+
+.footer_div {
+	display: grid;
+	width: 100%;
+	grid-template-columns: repeat(3, 1fr);
+	grid-row: 7 / 8;
+	grid-column: 1 / 4;
+}
+
+.footer_div>div {
+	border: solid 1px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+
+.page_no {
+	grid-column: 2 / 3;
+}
+
+.page_no_deco {
+	font-weight: bolder;
+	font-family: Helvetica;
+	font-size: 1.5em;
+}
+
+
+
+.prev_button {
+	grid-column: 1 / 2;
+	height: 100%;
+	width: 100%;
+}
+
+.prev_button>a {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.prev_button>a>button {
+	height: 80%;
+	width: 50%;
+}
+
+
+.next_button {
+	grid-column: 3 / 4;
+	height: 100%;
+	width: 100%;
+}
+
+.next_button>a {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: right;
+}
+
+.next_button>a>button {
+	height: 80%;
+	width: 50%;
+}
+
+
+
+
+/*Color Selection*/
+
+.default{
+	background: #fff;
+	color: 	#000;
+}
+.dark-mode{
+	background:#212F3D ;
+	color: 	#F7DC6F ;
+}
+.orange{
+	background:#490017  ;
+	color: 	#F0E68C;
+}
+.black-text{
+	background: #95AF9C ;
+	color: #000B18;
+}
+
+
+
